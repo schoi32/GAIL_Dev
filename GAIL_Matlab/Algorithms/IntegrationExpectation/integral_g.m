@@ -42,7 +42,7 @@ function [q,out_param] = integral_g(varargin)
 %     value is 1e-6
 %
 %     in_param.reltol --- guaranteed relative error tolerance, default
-%     value is 5e-3
+%     value is 0
 %
 %  Optional Input Arguments (Recommended not to change very often)
 %
@@ -270,7 +270,7 @@ function [f, out_param, flip] = integral_g_param(varargin)
 
 % Default parameter values
 default.abstol  = 1e-6;
-default.reltol = 5e-3;
+default.reltol = 0;
 default.nmax  = 1e7;
 default.nlo = 10;
 default.nhi = 1000;
