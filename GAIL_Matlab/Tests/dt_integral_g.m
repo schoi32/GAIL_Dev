@@ -84,6 +84,7 @@ function dt_integral_g()
 %                    a: 0
 %                    b: 1
 %               abstol: 1.0000e-06
+%               reltol: 0 
 %                  nlo: 10
 %                  nhi: 1000
 %                 nmax: 10000000
@@ -103,6 +104,7 @@ function dt_integral_g()
 %                    a: 1
 %                    b: 2
 %               abstol: 1.0000e-05
+%               reltol: 0 
 %                  nlo: 100
 %                  nhi: 10000
 %                 nmax: 10000000
