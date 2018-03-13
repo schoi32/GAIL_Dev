@@ -79,12 +79,25 @@ function dt_integral_g()
 % 
 %  Testing reltol
 %   >> reltol = 1e-14;  qtrue = 0.746824132812427;
-%   >> q = integral_g(@(x) exp(-x.^2), 0, 1,'abstol', 0,'reltol',reltol);
+%   >> q = integral_g(@(x) exp(-x.^2), 0, 1, 'abstol', 0,'reltol', reltol);
+%   Warning***
 %   >> abs(qtrue-q) < reltol * qtrue
 %   1
 %
-% 
-%  >> [~,out_param]=integral_g(@(x) x.^2) 
+%
+%   >> reltol = 1e-14; qtrue = 746.82413281242702540;
+%   >> [q,out] = integral_g(@(x) 1000 * exp(-x.^2), 0, 1, 'abstol', 0,'reltol', reltol);
+%   Warning***
+%   >> abs(qtrue-q) < reltol * qtrue
+%   1
+%
+%
+%   >> abstol = 1e-14; qtrue = 746.82413281242702540;
+%   >> [q,out] = integral_g(@(x) 1000 * exp(-x.^2), 0, 1, 'abstol', abstol);
+%   Warning***
+%
+%
+%%  >> [~,out_param]=integral_g(@(x) x.^2) 
 %         out_param =***
 % 
 %                    f: @(x)x.^2
@@ -119,7 +132,7 @@ function dt_integral_g()
 %                  tau: 1997
 %         exceedbudget: 0
 %           conechange: 0
-%              npoints: 1999
-%               errest: 6.2148e-08
-%              VarfpCI: [0.6622 1.9848]
+%              npoints: 2998
+%               errest: ***e-08
+%              VarfpCI: [0.6623 1.4895]
 end

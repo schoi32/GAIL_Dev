@@ -179,6 +179,7 @@ Varfp=zeros(10,1); %initialize vector of approximations to Var(f')
 Varfpup=[inf; zeros(10,1)]; %initialize vector of upper bounds to Var(f')
 ii=1; %index
 
+inflation=3;
 if intervallen>0
     steplen=intervallen/ntrap; % length of subinterval
     steplenvec=zeros(10,1); %vector to record subinterval lengths
@@ -214,14 +215,14 @@ if intervallen>0
         tminus=t-errest; 
         tplus=t+errest;%compute extreme value
         delta=(max(out_param.abstol,out_param.reltol*abs(tplus))+max(out_param.abstol,out_param.reltol*abs(tminus)))/2;
-        if errest <= delta %tolerance is satisfied
+        if errest * inflation <= delta %tolerance is satisfied
             q=(tminus*max(out_param.abstol,out_param.reltol*abs(tplus))+tplus*max(out_param.abstol,out_param.reltol*abs(tminus)))/...
                 (max(out_param.abstol,out_param.reltol*abs(tplus))+max(out_param.abstol,out_param.reltol*abs(tminus)));
             %keyboard
             break %exit while loop
-        else %need to increase number of trapezoids
-            %proposed inflation factor to increase ntrap by
-            inflation=2;
+%         else %need to increase number of trapezoids
+%             %proposed inflation factor to increase ntrap by
+%             inflation=2;
         end
         if ntrap*inflation+1 > out_param.nmax
                 %cost budget does not allow intended increase in ntrap
